@@ -14,12 +14,6 @@ public class Node : MonoBehaviour
         _defaultColor = _renderer.material.color;
     }
 
-    private void Update()
-    {
-        
-    }
-
-
     private void OnMouseEnter()
     {
         _renderer.material.color = _hoverColor;
