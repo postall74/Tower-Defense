@@ -10,8 +10,8 @@ public class Turret : MonoBehaviour
     [SerializeField] private float _turnSpeed = 10f;
     [Header("Fire system")]
     [SerializeField] private float _fireRate = 1f;
-    [SerializeField] private float _firCountdown = 0f;
-    [SerializeField] private Transform _firePoint;
+    [SerializeField] private float _fireCountdown = 0f;
+    [SerializeField] private Transform[] _firePoints;
     [SerializeField] private GameObject _bulletPrefab;
 
     private Transform _target;
@@ -31,22 +31,27 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(_partToRotate.rotation, lookRotation, Time.deltaTime * _turnSpeed).eulerAngles;
         _partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if (_firCountdown <=0)
+        if (_fireCountdown <=0)
         {
             Shoot();
-            _firCountdown = 1f / _fireRate;
+            _fireCountdown = 1f / _fireRate;
         }
 
-        _firCountdown -= Time.deltaTime;
+        _fireCountdown -= Time.deltaTime;
     }
 
     private void Shoot()
     {
-        GameObject bulletGameObject = (GameObject)Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
-        Bullet bullet = bulletGameObject.GetComponent<Bullet>();
+        foreach (Transform firePoint in _firePoints)
+        {
+            GameObject bulletGameObject = (GameObject)Instantiate(_bulletPrefab, firePoint.position, firePoint.rotation);  
+            Bullet bullet = bulletGameObject.GetComponent<Bullet>();
 
-        if (bullet != null)
-            bullet.Seek(_target);
+            if (bullet != null)
+                bullet.Seek(_target);
+        }
+
+
     }
 
     private void UpdateTarget()
