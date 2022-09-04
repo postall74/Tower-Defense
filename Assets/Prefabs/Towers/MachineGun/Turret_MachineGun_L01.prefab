@@ -48,8 +48,8 @@ MonoBehaviour:
   _range: 15
   _partToRotate: {fileID: 8111698706746466795}
   _turnSpeed: 10
-  _fireRate: 1
-  _firCountdown: 0
+  _fireRate: 3
+  _fireCountdown: 0
   _firePoints:
   - {fileID: 4926975393439382995}
   _bulletPrefab: {fileID: 7534086280230299625, guid: 896ae9d85febcf648bd65a452a6502f1, type: 3}
