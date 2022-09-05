@@ -7931,6 +7931,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11bfa650d815fb448ce31b512fa3dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _machinegunTurret:
+    _prefab: {fileID: 8581665725122293947, guid: 3809b4639af6d5047b7a03f6f3039803, type: 3}
+    _cost: 100
+  _rocketTurret:
+    _prefab: {fileID: 8581665725122293947, guid: c08be368fa5bab8498137f0ec8dad579, type: 3}
+    _cost: 250
 --- !u!1001 &992540867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10474,7 +10480,7 @@ PrefabInstance:
       objectReference: {fileID: 988428342}
     - target: {fileID: 5569529326931893308, guid: 222853487c200e5438e0d37669f3b61b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPurchaseRocketTurret
+      value: OnSelectRocketTurret
       objectReference: {fileID: 0}
     - target: {fileID: 5569529326931893309, guid: 222853487c200e5438e0d37669f3b61b, type: 3}
       propertyPath: m_Sprite
@@ -16041,6 +16047,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3098586392378262404, guid: bb3527df4e0ac244c971d37af2674193, type: 3}
+      propertyPath: _positionOffset.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4791274850220836252, guid: bb3527df4e0ac244c971d37af2674193, type: 3}
       propertyPath: m_Name
       value: Node
@@ -16069,7 +16079,7 @@ PrefabInstance:
       objectReference: {fileID: 988428342}
     - target: {fileID: 5569529326931893308, guid: 222853487c200e5438e0d37669f3b61b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPurchaseMachineguneTurret
+      value: OnSelectMachineguneTurret
       objectReference: {fileID: 0}
     - target: {fileID: 5569529326931893310, guid: 222853487c200e5438e0d37669f3b61b, type: 3}
       propertyPath: m_Pivot.x

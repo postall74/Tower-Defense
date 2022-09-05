@@ -2,27 +2,25 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+    [SerializeField] private TurretBlueprint _machinegunTurret;  
+    [SerializeField] private TurretBlueprint _rocketTurret;  
+
     private BuildManager _buildManager;
 
-    public void OnPurchaseMachineguneTurret()
+    public void OnSelectMachineguneTurret()
     {
         Debug.Log("Machingun turret Selected");
-        _buildManager.SetTurretToBuild(_buildManager.MachinegunLevel1TurretPrefab);
+        _buildManager.SelectTurretToBuild(_machinegunTurret);
     }
 
-    public void OnPurchaseRocketTurret()
+    public void OnSelectRocketTurret()
     {
         Debug.Log("Rocket turret Selected");
-        _buildManager.SetTurretToBuild(_buildManager.RocketTurretPrefab);
+        _buildManager.SelectTurretToBuild(_rocketTurret);
     }
 
     private void Start()
     {
         _buildManager = BuildManager.instance;
-    }
-
-    private void Update()
-    {
-        
     }
 }

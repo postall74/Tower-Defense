@@ -1,23 +1,15 @@
+using System;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
-    [SerializeField] private GameObject _machinegunTurretPrefab;
-    [SerializeField] private GameObject _rocketTurretPrefab;
+    private TurretBlueprint _turretToBuild;
 
-    private GameObject _turretToBuild;
+    public bool CanBuild { get { return _turretToBuild != null; } }
 
-    public GameObject MachinegunLevel1TurretPrefab => _machinegunTurretPrefab;
-    public GameObject RocketTurretPrefab => _rocketTurretPrefab;
-
-    public GameObject GetTurretToBuild()
-    {
-        return _turretToBuild;
-    }
-
-    public void SetTurretToBuild(GameObject turret)
+    public void SelectTurretToBuild(TurretBlueprint turret)
     {
         _turretToBuild = turret;
     }
@@ -31,5 +23,21 @@ public class BuildManager : MonoBehaviour
         }
 
         instance = this;
+    }
+
+    public void BuildTurretOn(Node node)
+    {
+        if (PlayerStats.Money < _turretToBuild.Cost)
+        {
+            Debug.Log("Not enoth money to build that!");
+            return;
+        }
+
+        PlayerStats.Money -= _turretToBuild.Cost;
+
+        GameObject turret = (GameObject)Instantiate(_turretToBuild.Prefab, node.GetBuildPosition(), Quaternion.identity);
+        node.SetBuildTurret(turret);
+
+        Debug.Log($"Turret build! Money left - {PlayerStats.Money}");
     }
 }
