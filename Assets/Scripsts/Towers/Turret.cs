@@ -50,8 +50,6 @@ public class Turret : MonoBehaviour
             if (bullet != null)
                 bullet.Seek(_target);
         }
-
-
     }
 
     private void UpdateTarget()

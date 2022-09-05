@@ -35,7 +35,7 @@ public class BuildManager : MonoBehaviour
             return;
         }
 
-        PlayerStats.Money -= _turretToBuild.Cost;
+        Payment(_turretToBuild.Cost);
 
         GameObject turret = (GameObject)Instantiate(_turretToBuild.Prefab, node.GetBuildPosition(), Quaternion.identity);
         node.SetBuildTurret(turret);
@@ -44,5 +44,10 @@ public class BuildManager : MonoBehaviour
         Destroy(effect, 2f);
 
         Debug.Log($"Turret build! Money left - {PlayerStats.Money}");
+    }
+
+    private void Payment(int value)
+    {
+        PlayerStats.Money -= value;
     }
 }

@@ -8,7 +8,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private float _speed = 70f;
     [SerializeField] private float _explosionRadius = 0f;
-    [SerializeField] private GameObject _impactEffect;  
+    [SerializeField] private GameObject _impactEffect;
+    [SerializeField] private int _damage = 50;
 
     private Transform _target;
 
@@ -23,7 +24,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             return;
-        }    
+        }
 
         Vector3 directon = _target.position - transform.position;
         float distanceThisFrame = _speed * Time.deltaTime;
@@ -31,7 +32,7 @@ public class Bullet : MonoBehaviour
         if (directon.magnitude <= distanceThisFrame)
         {
             HitTarget();
-            return; 
+            return;
         }
 
         transform.Translate(directon.normalized * distanceThisFrame, Space.World);
@@ -40,7 +41,7 @@ public class Bullet : MonoBehaviour
 
     private void HitTarget()
     {
-        GameObject effectInstance = Instantiate(_impactEffect, transform.position, transform.rotation);
+        GameObject effectInstance = (GameObject)Instantiate(_impactEffect, transform.position, transform.rotation);
         Destroy(effectInstance, 2f);
 
         if (_explosionRadius > 0f)
@@ -57,7 +58,7 @@ public class Bullet : MonoBehaviour
 
     private void Explode()
     {
-         Collider[] colliders = Physics.OverlapSphere(transform.position, _explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, _explosionRadius);
 
         foreach (Collider collider in colliders)
         {
@@ -68,9 +69,12 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void Damage(Transform enemy)
+    private void Damage(Transform transform)
     {
-        Destroy(enemy.gameObject);
+        Enemy enemy = transform.GetComponent<Enemy>();
+
+        if (enemy != null)
+            enemy.TakeDamage(_damage);
     }
 
     private void OnDrawGizmosSelected()
