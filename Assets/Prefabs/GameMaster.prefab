@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7067857527971424155}
   - component: {fileID: 7067857527971424152}
   - component: {fileID: -5253407266373788397}
+  - component: {fileID: -3062544896800416103}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -61,5 +62,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2188a528f0f1e44b87109ecf21c4ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _machinegunTurretPrefab: {fileID: 8581665725122293947, guid: 3809b4639af6d5047b7a03f6f3039803, type: 3}
-  _rocketTurretPrefab: {fileID: 8581665725122293947, guid: c08be368fa5bab8498137f0ec8dad579, type: 3}
+--- !u!114 &-3062544896800416103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067857527971424153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cdfd3f5e7745f47871c27b07d594af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
