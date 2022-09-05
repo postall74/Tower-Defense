@@ -1,13 +1,15 @@
-using System;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
+    [SerializeField] private GameObject _buildEffect;
+
     private TurretBlueprint _turretToBuild;
 
     public bool CanBuild { get { return _turretToBuild != null; } }
+    public bool HasMoney { get { return PlayerStats.Money >= _turretToBuild.Cost; } }
 
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
@@ -37,6 +39,9 @@ public class BuildManager : MonoBehaviour
 
         GameObject turret = (GameObject)Instantiate(_turretToBuild.Prefab, node.GetBuildPosition(), Quaternion.identity);
         node.SetBuildTurret(turret);
+
+        GameObject effect = Instantiate(_buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 2f);
 
         Debug.Log($"Turret build! Money left - {PlayerStats.Money}");
     }

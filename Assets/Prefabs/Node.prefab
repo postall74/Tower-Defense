@@ -111,3 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hoverColor: {r: 0.33459416, g: 0.9716981, b: 0.3552127, a: 0.5882353}
+  _notEnouthMoneyColor: {r: 0.9245283, g: 0.100302614, b: 0.100302614, a: 0.5882353}
+  _canNotBeBuildColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.5882353}
