@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -12,7 +13,11 @@ public class Turret : MonoBehaviour
     [SerializeField] private float _fireRate = 1f;
     [SerializeField] private float _fireCountdown = 0f;
     [SerializeField] private Transform[] _firePoints;
+    [Header("Bullets")]
     [SerializeField] private GameObject _bulletPrefab;
+    [Header("Laser")]
+    [SerializeField] private bool _isUseLaser = false;
+    [SerializeField] private LineRenderer _lineRenderer;
 
     private Transform _target;
 
@@ -24,20 +29,50 @@ public class Turret : MonoBehaviour
     private void Update()
     {
         if (_target == null)
-            return;
+        {
+            if (_isUseLaser)
+            {
+                if (_lineRenderer.enabled)
+                    _lineRenderer.enabled = false;
+            }
 
+            return;
+        }
+
+        LockOnTarget();
+
+        if (_isUseLaser)
+            Laser();
+        else
+        {
+            if (_fireCountdown <= 0)
+            {
+                Shoot();
+                _fireCountdown = 1f / _fireRate;
+            }
+
+            _fireCountdown -= Time.deltaTime;
+        }
+    }
+
+    private void Laser()
+    {
+        foreach (Transform firePoint in _firePoints)
+        {
+            if (!_lineRenderer.enabled)
+                _lineRenderer.enabled = true;
+
+            _lineRenderer.SetPosition(0, firePoint.position);
+            _lineRenderer.SetPosition(1, _target.position);
+        }
+    }
+
+    private void LockOnTarget()
+    {
         Vector3 direction = _target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Vector3 rotation = Quaternion.Lerp(_partToRotate.rotation, lookRotation, Time.deltaTime * _turnSpeed).eulerAngles;
         _partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-
-        if (_fireCountdown <=0)
-        {
-            Shoot();
-            _fireCountdown = 1f / _fireRate;
-        }
-
-        _fireCountdown -= Time.deltaTime;
     }
 
     private void Shoot()
