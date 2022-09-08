@@ -18,6 +18,8 @@ public class Turret : MonoBehaviour
     [Header("Laser")]
     [SerializeField] private bool _isUseLaser = false;
     [SerializeField] private LineRenderer _lineRenderer;
+    [SerializeField] private ParticleSystem _impactEffect;
+    [SerializeField] private Light _impactLight;
 
     private Transform _target;
 
@@ -33,13 +35,17 @@ public class Turret : MonoBehaviour
             if (_isUseLaser)
             {
                 if (_lineRenderer.enabled)
+                {
                     _lineRenderer.enabled = false;
+                    _impactEffect.Stop();
+                    _impactLight.enabled = false; 
+                }
             }
 
             return;
         }
 
-        LockOnTarget();
+        LookOnTarget();
 
         if (_isUseLaser)
             Laser();
@@ -60,14 +66,23 @@ public class Turret : MonoBehaviour
         foreach (Transform firePoint in _firePoints)
         {
             if (!_lineRenderer.enabled)
+            {
                 _lineRenderer.enabled = true;
+                _impactEffect.Play();
+                _impactLight.enabled = true;
+            }
 
             _lineRenderer.SetPosition(0, firePoint.position);
             _lineRenderer.SetPosition(1, _target.position);
+
+            Vector3 direction = firePoint.position - _target.position;
+            _impactEffect.transform.position = _target.position + direction.normalized;
+            _impactEffect.transform.rotation = Quaternion.LookRotation(direction);
+
         }
     }
 
-    private void LockOnTarget()
+    private void LookOnTarget()
     {
         Vector3 direction = _target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
