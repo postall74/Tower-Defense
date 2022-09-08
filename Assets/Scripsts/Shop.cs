@@ -3,7 +3,8 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private TurretBlueprint _machinegunTurret;  
-    [SerializeField] private TurretBlueprint _rocketTurret;  
+    [SerializeField] private TurretBlueprint _rocketTurret;
+    [SerializeField] private TurretBlueprint _laserTurret;
 
     private BuildManager _buildManager;
 
@@ -17,6 +18,12 @@ public class Shop : MonoBehaviour
     {
         Debug.Log("Rocket turret Selected");
         _buildManager.SelectTurretToBuild(_rocketTurret);
+    }
+
+    public void OnSelectLaserTurret()
+    {
+        Debug.Log("Laser turret Selected");
+        _buildManager.SelectTurretToBuild(_laserTurret);
     }
 
     private void Start()
