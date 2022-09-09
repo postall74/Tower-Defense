@@ -13,6 +13,6 @@ public class MoneyUI : MonoBehaviour
 
     private void Update()
     {
-        _momeyText.text = "$" +  PlayerStats.Money.ToString();  
+        _momeyText.text = "$" +  PlayerStats.Momey;  
     }
 }
