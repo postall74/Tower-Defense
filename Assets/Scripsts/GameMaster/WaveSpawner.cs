@@ -11,7 +11,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Text _waveCountdownText;
 
     private float _countdown = 2f;
-    private int _wavwIndex = 0; 
+    private int _waveIndex = 0; 
 
     private void Update()
     {
@@ -29,9 +29,10 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWaves()
     {
-        _wavwIndex++;
+        _waveIndex++;
+        PlayerStats.AddRound();
 
-        for (int i = 0; i < _wavwIndex; i++)
+        for (int i = 0; i < _waveIndex; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(0.25f);

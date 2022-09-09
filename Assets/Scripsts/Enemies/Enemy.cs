@@ -47,6 +47,6 @@ public class Enemy : MonoBehaviour
 
     private void Payment(int value)
     {
-        PlayerStats.Money += value;
+        PlayerStats.ChangeMoney(value);
     }
 }
