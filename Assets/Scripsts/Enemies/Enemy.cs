@@ -3,15 +3,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _speed = 10f;
-    [SerializeField] private int _health = 100;
-    [SerializeField] private int _moneyGain = 2;
+    [SerializeField] private float _startSpeed = 10f;
+    [SerializeField] private float _health = 100f;
+    [SerializeField] private int _worth = 2;
     [SerializeField] private GameObject _deathEffect;
+    
+    private float _curretSpeed;
 
-    private Transform _targer;
-    private int _wavePointIndex = 0;
+    public float CurrentSpeed => _curretSpeed;
+    public float Health => _health;
+    public int Worth => _worth;
 
-    public void TakeDamage(int damage)
+    private void Start()
+    {
+        _curretSpeed = _startSpeed;
+    }
+
+    public void TakeDamage(float damage)
     {
         _health -= damage;
 
@@ -19,43 +27,19 @@ public class Enemy : MonoBehaviour
             Die();
     }
 
-    private void Start()
+    public void Slow(float value)
     {
-        _targer = Waypoints.points[0];
+        _curretSpeed = _startSpeed * (1f - value);
     }
 
-    private void Update()
+    public void ResetSpeed()
     {
-        Vector3 direction = _targer.position - transform.position;
-        transform.Translate(direction.normalized * Time.deltaTime * _speed, Space.World);
-
-        if (Vector3.Distance(transform.position, _targer.position) <= 0.4f)
-        {
-            GetNextWayPoint();
-        }
-    }
-
-    private void GetNextWayPoint()
-    {
-        if (_wavePointIndex >= Waypoints.points.Length - 1)
-        {
-            EndPath();
-            return;
-        }
-
-        _wavePointIndex++;
-        _targer = Waypoints.points[_wavePointIndex];
-    }
-
-    private void EndPath()
-    {
-        PlayerStats.Lives--;
-        Destroy(gameObject);
+        _curretSpeed = _startSpeed;
     }
 
     private void Die()
     {
-        Payment(_moneyGain);
+        Payment(_worth);
         GameObject deathEffect = (GameObject)Instantiate(_deathEffect, transform.position, Quaternion.identity);
         Destroy(deathEffect, 2f);
         Destroy(gameObject);
