@@ -5049,6 +5049,8 @@ MonoBehaviour:
   - {fileID: 4743605747249922828}
   _bulletPrefab: {fileID: 0}
   _isUseLaser: 1
+  _damageOverTime: 40
+  _slowdownPercentage: 0.35
   _lineRenderer: {fileID: 6307323756311826505}
   _impactEffect: {fileID: 6999750108613044535}
   _impactLight: {fileID: 1673370512226887024}

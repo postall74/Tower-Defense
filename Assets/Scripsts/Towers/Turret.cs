@@ -17,11 +17,15 @@ public class Turret : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [Header("Laser")]
     [SerializeField] private bool _isUseLaser = false;
+    [SerializeField] private int _damageOverTime = 30;
+    [Range(0f, 1f)]
+    [SerializeField] private float _slowdownPercentage = 0.3f;
     [SerializeField] private LineRenderer _lineRenderer;
     [SerializeField] private ParticleSystem _impactEffect;
     [SerializeField] private Light _impactLight;
 
     private Transform _target;
+    private Enemy _targetEnemy;
 
     private void Start()
     {
@@ -65,6 +69,9 @@ public class Turret : MonoBehaviour
     {
         foreach (Transform firePoint in _firePoints)
         {
+            _targetEnemy.TakeDamage(_damageOverTime * Time.deltaTime);
+            _targetEnemy.Slow(_slowdownPercentage);
+
             if (!_lineRenderer.enabled)
             {
                 _lineRenderer.enabled = true;
@@ -120,7 +127,10 @@ public class Turret : MonoBehaviour
         }
 
         if (nearestEnemy != null && shortestDistance <= _range)
+        {
             _target = nearestEnemy.transform;
+            _targetEnemy = nearestEnemy.GetComponent<Enemy>();
+        }
         else
             _target = null;
     }
