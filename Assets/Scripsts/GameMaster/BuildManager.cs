@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -5,15 +6,38 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
 
     [SerializeField] private GameObject _buildEffect;
+    [SerializeField] private NodeUI _nodeUI;
 
     private TurretBlueprint _turretToBuild;
+    private Node _selectedNode; 
+
 
     public bool CanBuild { get { return _turretToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Momey >= _turretToBuild.Cost; } }
 
+    public void SelectNode(Node node)
+    {
+        if (_selectedNode == node)
+        {
+            DeselectNode();
+            return;
+        }
+
+        _selectedNode = node;
+        _turretToBuild = null;
+        _nodeUI.SetTarget(_selectedNode);
+    }
+
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
         _turretToBuild = turret;
+        DeselectNode();
+    }
+
+    public void DeselectNode()
+    {
+        _selectedNode = null;
+        _nodeUI.Hide();
     }
 
     private void Awake()
