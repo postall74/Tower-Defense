@@ -64,6 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildEffect: {fileID: 2009635642797067862, guid: 6e70787a86ebcde4d98a2d76d801e294, type: 3}
+  _upgradeEffect: {fileID: 2009635642797067862, guid: 6e70787a86ebcde4d98a2d76d801e294, type: 3}
+  _nodeUI: {fileID: 0}
 --- !u!114 &-3062544896800416103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,8 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cdfd3f5e7745f47871c27b07d594af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startMoney: 500
-  _startLive: 20
+  _startMoney: 350
+  _startLive: 1
 --- !u!114 &1373397695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,3 +92,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6776463c0d39d1e409d4d2c9df6fdedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameOverUI: {fileID: 0}

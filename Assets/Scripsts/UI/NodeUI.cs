@@ -1,8 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NodeUI : MonoBehaviour
 {
-    [SerializeField] private GameObject _ui;
+    [SerializeField] private GameObject _gui;
+    [SerializeField] private Button _upgradeButton;
+    [SerializeField] private Text _upgradeCost;
+    [SerializeField] private Button _sellButton;
+    [SerializeField] private Text _sellCost;
 
     private Node _targetNode;
 
@@ -10,21 +15,29 @@ public class NodeUI : MonoBehaviour
     {
         _targetNode = node;
         transform.position = _targetNode.GetBuildPosition();
-        _ui.SetActive(true);
+
+        if (!_targetNode.IsUpgrade)
+        {
+            _upgradeCost.text = "$" + _targetNode.TurretBlueprint.UpgradeCost;
+            _upgradeButton.interactable = true;
+        }
+        else
+        {
+            _upgradeCost.text = "DONE";
+            _upgradeButton.interactable = false;
+        }
+
+        _gui.SetActive(true);
     }
 
     public void Hide()
     {
-        _ui.SetActive(false);
+        _gui.SetActive(false);
     }
 
-    private void Start()
+    public void OnUpgrade()
     {
-
-    }
-
-    private void Update()
-    {
-
+        _targetNode.UpdateTurret();
+        BuildManager.instance.DeselectNode();
     }
 }

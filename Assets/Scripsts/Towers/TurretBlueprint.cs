@@ -4,9 +4,13 @@ using UnityEngine.UI;
 [System.Serializable]
 public class TurretBlueprint
 {
-    [SerializeField] private GameObject _prefab;
-    [SerializeField] private int _cost;
+    [SerializeField] private GameObject _buildPrefab;
+    [SerializeField] private int _buildCost;
+    [SerializeField] private GameObject _upgradePrefab;
+    [SerializeField] private int _upgradeCost;
 
-    public GameObject Prefab => _prefab;
-    public int Cost => _cost;
+    public GameObject BuildPrefab => _buildPrefab;
+    public GameObject UpgradePrefab => _upgradePrefab;
+    public int BuildCost => _buildCost;
+    public int UpgradeCost => _upgradeCost;
 }
