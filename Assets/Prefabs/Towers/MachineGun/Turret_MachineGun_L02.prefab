@@ -45,14 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce17d68c8a8b31c4ea808f8f69c755bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 15
+  _range: 20
   _partToRotate: {fileID: 3683352879576893136}
   _turnSpeed: 10
-  _fireRate: 10
+  _fireRate: 5
   _fireCountdown: 0
   _firePoints:
   - {fileID: 828276869124788825}
-  _bulletPrefab: {fileID: 7534086280230299625, guid: 896ae9d85febcf648bd65a452a6502f1, type: 3}
+  _bulletPrefab: {fileID: 7534086280230299625, guid: 0a047aa3cd3486f48bab52fdebfe4e97, type: 3}
+  _isUseLaser: 0
+  _damageOverTime: 30
+  _slowdownPercentage: 0.3
+  _lineRenderer: {fileID: 0}
+  _impactEffect: {fileID: 0}
+  _impactLight: {fileID: 0}
 --- !u!1001 &5520352850065157425
 PrefabInstance:
   m_ObjectHideFlags: 0

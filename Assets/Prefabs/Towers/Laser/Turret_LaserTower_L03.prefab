@@ -9882,7 +9882,7 @@ MonoBehaviour:
   _range: 20
   _partToRotate: {fileID: 5124956490350481620}
   _turnSpeed: 40
-  _fireRate: 0.5
+  _fireRate: 1.25
   _fireCountdown: 3
   _firePoints:
   - {fileID: 4743605747249922828}

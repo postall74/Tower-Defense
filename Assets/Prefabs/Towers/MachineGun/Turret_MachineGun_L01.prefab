@@ -53,6 +53,12 @@ MonoBehaviour:
   _firePoints:
   - {fileID: 4926975393439382995}
   _bulletPrefab: {fileID: 7534086280230299625, guid: 896ae9d85febcf648bd65a452a6502f1, type: 3}
+  _isUseLaser: 0
+  _damageOverTime: 30
+  _slowdownPercentage: 0.3
+  _lineRenderer: {fileID: 0}
+  _impactEffect: {fileID: 0}
+  _impactLight: {fileID: 0}
 --- !u!1001 &9044228138849729433
 PrefabInstance:
   m_ObjectHideFlags: 0
