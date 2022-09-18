@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -7,6 +6,7 @@ public class BuildManager : MonoBehaviour
 
     [SerializeField] private GameObject _buildEffect;
     [SerializeField] private GameObject _upgradeEffect;
+    [SerializeField] private GameObject _sellEffect;
     [SerializeField] private NodeUI _nodeUI;
 
     private TurretBlueprint _turretToBuild;
@@ -14,6 +14,7 @@ public class BuildManager : MonoBehaviour
 
     public GameObject BuildEffect => _buildEffect;
     public GameObject UpgradeEffect => _upgradeEffect;
+    public GameObject SellEffect => _sellEffect;
     public TurretBlueprint TurretToBuild => _turretToBuild;
 
     public bool CanBuild { get { return _turretToBuild != null; } }

@@ -7263,6 +7263,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2605248632591152314, guid: bb3527df4e0ac244c971d37af2674193, type: 3}
   m_PrefabInstance: {fileID: 924624939}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &925962125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 826244366, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+  m_PrefabInstance: {fileID: 1370213001182049964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &931626275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16246,8 +16257,40 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 826244364, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+      propertyPath: m_Name
+      value: Amount
+      objectReference: {fileID: 0}
+    - target: {fileID: 826244364, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370213001289541284, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370213001289541284, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370213001289541284, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 785610477}
+    - target: {fileID: 1370213001289541284, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370213001289541284, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSell
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370213001289541284, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NodeUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370213001289541284, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1370213001289541290, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
       propertyPath: m_Layer
@@ -16297,6 +16340,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1370213001898000449, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
+      propertyPath: _sellAmount
+      value: 
+      objectReference: {fileID: 925962125}
     - target: {fileID: 1370213001898000449, guid: 23e6649e01645624187ecbe7042d9a1b, type: 3}
       propertyPath: _sellButton
       value: 
@@ -16743,6 +16790,10 @@ PrefabInstance:
       propertyPath: _nodeUI
       value: 
       objectReference: {fileID: 785610477}
+    - target: {fileID: -5253407266373788397, guid: d9e161b90558931478c4c13a9a7f6356, type: 3}
+      propertyPath: _sellEffect
+      value: 
+      objectReference: {fileID: 8263048283688086922, guid: bf70250dd4d1bdb4585ff3bb66e9f7c5, type: 3}
     - target: {fileID: 1373397695, guid: d9e161b90558931478c4c13a9a7f6356, type: 3}
       propertyPath: _gameOverUI
       value: 

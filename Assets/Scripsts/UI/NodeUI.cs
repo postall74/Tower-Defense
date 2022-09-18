@@ -7,7 +7,7 @@ public class NodeUI : MonoBehaviour
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private Text _upgradeCost;
     [SerializeField] private Button _sellButton;
-    [SerializeField] private Text _sellCost;
+    [SerializeField] private Text _sellAmount;
 
     private Node _targetNode;
 
@@ -27,6 +27,8 @@ public class NodeUI : MonoBehaviour
             _upgradeButton.interactable = false;
         }
 
+        _sellAmount.text = "$" + _targetNode.TurretBlueprint.GetSellAmount();
+
         _gui.SetActive(true);
     }
 
@@ -38,6 +40,12 @@ public class NodeUI : MonoBehaviour
     public void OnUpgrade()
     {
         _targetNode.UpdateTurret();
+        BuildManager.instance.DeselectNode();
+    }
+
+    public void OnSell()
+    {
+        _targetNode.SellTurret();
         BuildManager.instance.DeselectNode();
     }
 }

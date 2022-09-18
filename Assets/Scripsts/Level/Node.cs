@@ -41,7 +41,7 @@ public class Node : MonoBehaviour
             return;
         }
 
-        Payment(_turretBlueprint.UpgradeCost);
+        Payment(-_turretBlueprint.UpgradeCost);
 
         Destroy(_turret);
 
@@ -54,6 +54,17 @@ public class Node : MonoBehaviour
         _isUpgrade = true;
 
         Debug.Log("Turret Upgrade");
+    }
+
+    public void SellTurret()
+    {
+        Payment(_turretBlueprint.GetSellAmount());
+
+        GameObject effect = Instantiate(_buildManager.SellEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 2f);
+
+        Destroy(_turret);
+        _turretBlueprint = null;
     }
 
     private void Start()
@@ -111,7 +122,7 @@ public class Node : MonoBehaviour
             return;
         }
 
-        Payment(turretToBuild.BuildCost);
+        Payment(-turretToBuild.BuildCost);
 
         GameObject turret = (GameObject)Instantiate(turretToBuild.BuildPrefab, GetBuildPosition(), Quaternion.identity);
         SetBuildTurret(turret);
@@ -124,6 +135,6 @@ public class Node : MonoBehaviour
 
     private void Payment(int value)
     {
-        PlayerStats.ChangeMoney(-value);
+        PlayerStats.ChangeMoney(value);
     }
 }
