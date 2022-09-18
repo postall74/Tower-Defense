@@ -5,10 +5,11 @@ public class MainMenu : MonoBehaviour
 {
 
     [SerializeField] private string _levelToLoad = "MainLevel";
+    [SerializeField] private SceneFader _sceneFader;
 
     public void OnPlay()
     {
-        SceneManager.LoadScene(_levelToLoad);
+        _sceneFader.FadeTo(_levelToLoad);
     }
 
     public void OnQuit()

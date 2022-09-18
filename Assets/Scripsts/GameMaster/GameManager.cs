@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _isGameOver = false;
-        Time.timeScale = 1f;
     }
 
     private void Update()
@@ -28,6 +27,5 @@ public class GameManager : MonoBehaviour
     {
         _isGameOver = true;
         _gameOverUI.SetActive(true);
-        Time.timeScale = 0f;
     }
 }

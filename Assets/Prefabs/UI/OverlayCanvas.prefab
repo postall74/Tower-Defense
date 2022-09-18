@@ -1064,6 +1064,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _roundText: {fileID: 2205344421431884968}
+  _sceneFader: {fileID: 0}
+  _menuSceneName: MainMenu
 --- !u!95 &2205344421568278940
 Animator:
   serializedVersion: 4
