@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8581665725122293947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: -0.5, z: -10}
+  m_LocalPosition: {x: 30, y: 0, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -148,6 +148,12 @@ MonoBehaviour:
   - {fileID: 4357725795533605198}
   - {fileID: 5376052191053510321}
   _bulletPrefab: {fileID: 1573176880133800023, guid: 3f8c3202bddd18041a6987fc9fbde939, type: 3}
+  _isUseLaser: 0
+  _damageOverTime: 30
+  _slowdownPercentage: 0.3
+  _lineRenderer: {fileID: 0}
+  _impactEffect: {fileID: 0}
+  _impactLight: {fileID: 0}
 --- !u!1001 &2812736372716002142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6543348283266658919, guid: 602d93797da68774ab992a17937ffc93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 0.9415
       objectReference: {fileID: 0}
     - target: {fileID: 6543348283266658919, guid: 602d93797da68774ab992a17937ffc93, type: 3}
       propertyPath: m_LocalPosition.z
