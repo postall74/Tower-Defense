@@ -7,12 +7,12 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] private Text _roundText;
 
-    public void Retry()
+    public void OnRetry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void Menu()
+    public void OnMenu()
     {
         Debug.Log("Go to menu");
     }
@@ -20,10 +20,5 @@ public class GameOver : MonoBehaviour
     private void OnEnable()
     {
         _roundText.text = PlayerStats.Rounds.ToString();
-    }
-
-    private void OnDisable()
-    {
-        
     }
 }

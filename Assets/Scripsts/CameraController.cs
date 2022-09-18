@@ -12,8 +12,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float _minX = -45f;
     [SerializeField] private float _maxX = 115f;
 
-    private bool _isMovment = true;
-
     private void Update()
     {
         if (GameManager.IsGameOver)
@@ -22,30 +20,24 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-            _isMovment = !_isMovment;
-
-        if (!_isMovment)
-            return;
-
         if (Input.GetKey(KeyCode.W) || Input.mousePosition.y >= Screen.height - _panBorderThickness)
         {
-            transform.Translate(Vector3.forward * _panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(_panSpeed * Time.deltaTime * Vector3.forward, Space.World);
         }
 
         if (Input.GetKey(KeyCode.S) || Input.mousePosition.y <= _panBorderThickness)
         {
-            transform.Translate(Vector3.back * _panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(_panSpeed * Time.deltaTime * Vector3.back, Space.World);
         }
 
         if (Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - _panBorderThickness)
         {
-            transform.Translate(Vector3.right * _panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(_panSpeed * Time.deltaTime * Vector3.right, Space.World);
         }
 
         if (Input.GetKey(KeyCode.A) || Input.mousePosition.x <= _panBorderThickness)
         {
-            transform.Translate(Vector3.left * _panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(_panSpeed * Time.deltaTime * Vector3.left, Space.World);
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");

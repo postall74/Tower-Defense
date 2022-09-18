@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5253407266373788397}
   - component: {fileID: -3062544896800416103}
   - component: {fileID: 1373397695}
+  - component: {fileID: 287332034}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -65,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildEffect: {fileID: 2009635642797067862, guid: 6e70787a86ebcde4d98a2d76d801e294, type: 3}
   _upgradeEffect: {fileID: 2009635642797067862, guid: 6e70787a86ebcde4d98a2d76d801e294, type: 3}
+  _sellEffect: {fileID: 8263048283688086922, guid: bf70250dd4d1bdb4585ff3bb66e9f7c5, type: 3}
   _nodeUI: {fileID: 0}
 --- !u!114 &-3062544896800416103
 MonoBehaviour:
@@ -93,3 +95,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameOverUI: {fileID: 0}
+--- !u!114 &287332034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067857527971424153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0524a4720247df40b822f84baa84938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ui: {fileID: 0}

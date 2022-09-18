@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,6 +12,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _isGameOver = false;
+        Time.timeScale = 1f;
     }
 
     private void Update()
@@ -21,14 +21,13 @@ public class GameManager : MonoBehaviour
             return;
 
         if (PlayerStats.Lives <= 0)
-        {
             EndGame();
-        }
     }
 
     private void EndGame()
     {
         _isGameOver = true;
         _gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
