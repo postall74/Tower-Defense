@@ -1,14 +1,16 @@
-using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _startSpeed = 10f;
-    [SerializeField] private float _health = 100f;
+    [SerializeField] private float _startHealth = 100f;
     [SerializeField] private int _worth = 2;
     [SerializeField] private GameObject _deathEffect;
+    [SerializeField] private Image _healthBar;
     
     private float _curretSpeed;
+    private float _health;
 
     public float CurrentSpeed => _curretSpeed;
     public float Health => _health;
@@ -17,11 +19,14 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _curretSpeed = _startSpeed;
+        _health = _startHealth;
     }
 
     public void TakeDamage(float damage)
     {
         _health -= damage;
+
+        _healthBar.fillAmount = NormalizeHealt(_health);
 
         if (_health < 0)
             Die();
@@ -35,6 +40,11 @@ public class Enemy : MonoBehaviour
     public void ResetSpeed()
     {
         _curretSpeed = _startSpeed;
+    }
+
+    private float NormalizeHealt(float value)
+    {
+        return value / _startHealth;
     }
 
     private void Die()
