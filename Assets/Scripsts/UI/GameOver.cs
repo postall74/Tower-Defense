@@ -6,15 +6,17 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     [SerializeField] private Text _roundText;
+    [SerializeField] private SceneFader _sceneFader;
+    [SerializeField] private string _menuSceneName = "MainMenu";
 
     public void OnRetry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void OnMenu()
     {
-        Debug.Log("Go to menu");
+        _sceneFader.FadeTo(_menuSceneName);
     }
 
     private void OnEnable()

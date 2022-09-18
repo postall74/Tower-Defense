@@ -108,3 +108,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ui: {fileID: 0}
+  _sceneFader: {fileID: 0}
+  _menuSceneName: MainMenu
