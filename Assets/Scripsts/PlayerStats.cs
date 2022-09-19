@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour
 
     public static void ChangeLives(int value)
     {
-        _lives -= value;
+        _lives += value;
     }
 
     private void Start()
