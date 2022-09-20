@@ -122,7 +122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2137115668704313562}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level01
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &-6777983262423762823
 Animator:
   serializedVersion: 4
@@ -223,7 +235,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 'Level
+
+    1'
 --- !u!114 &6656202185890111100
 MonoBehaviour:
   m_ObjectHideFlags: 0
