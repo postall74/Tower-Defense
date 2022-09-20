@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Text _waveCountdownText;
     [SerializeField] private Wave[] _waves;
 
-    private float _countdown = 0.1f;
+    private float _countdown = 2.0f;
     private int _waveIndex = 0; 
 
     private void Update()
