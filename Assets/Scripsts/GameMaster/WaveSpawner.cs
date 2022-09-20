@@ -11,6 +11,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private float _timeBetweenWaves = 5f;
     [SerializeField] private Text _waveCountdownText;
     [SerializeField] private Wave[] _waves;
+    [SerializeField] private GameManager _gameManager;
 
     private float _countdown = 2.0f;
     private int _waveIndex = 0; 
@@ -41,6 +42,8 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = _waves[_waveIndex];
 
+        EnemiesAlive = wave.Count;
+
         for (int i = 0; i < wave.Count; i++)
         {
             SpawnEnemy(wave.EnemyPrefab);
@@ -51,7 +54,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (_waveIndex == _waves.Length)
         {
-            Debug.Log("Level WON!");
+            _gameManager.WinLevel();
             this.enabled = false;
         }
 
@@ -60,6 +63,5 @@ public class WaveSpawner : MonoBehaviour
     private void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, _spawnPoint.position, _spawnPoint.rotation);
-        EnemiesAlive++; 
     }
 }
