@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     
     private float _curretSpeed;
     private float _health;
+    private bool _isDead = false;
 
     public float CurrentSpeed => _curretSpeed;
     public float Health => _health;
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour
 
         _healthBar.fillAmount = NormalizeHealt(_health);
 
-        if (_health < 0)
+        if (_health < 0 && !_isDead)
             Die();
     }
 
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        _isDead = true;
         Payment(_worth);
         GameObject deathEffect = (GameObject)Instantiate(_deathEffect, transform.position, Quaternion.identity);
         Destroy(deathEffect, 2f);

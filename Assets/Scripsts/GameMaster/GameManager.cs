@@ -5,9 +5,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject _gameOverUI;
-    [SerializeField] private string _nextLevel;
-    [SerializeField] private int _levelToUnlock;
-    [SerializeField] private SceneFader _sceneFader;
+    [SerializeField] private GameObject _completeLevelUI;
 
     private static bool _isGameOver;
 
@@ -15,9 +13,8 @@ public class GameManager : MonoBehaviour
 
     public void WinLevel()
     {
-        Debug.Log("Level WON!");
-        PlayerPrefs.SetInt("levelReached", _levelToUnlock);
-        _sceneFader.FadeTo(_nextLevel);
+        _isGameOver = true;
+        _completeLevelUI.SetActive(true);
     }
 
     private void Start()
